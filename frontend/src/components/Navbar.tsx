@@ -1,6 +1,9 @@
 import { LogOut, MessageSquare } from 'lucide-react'
 import React from 'react'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip'
+import ModeSwitch from './Modes'
+
+
 
 const Navbar: React.FC = () => {
     return (
@@ -12,14 +15,24 @@ const Navbar: React.FC = () => {
                         <TooltipTrigger asChild>
                             <MessageSquare className='text-white hover:text-slate-300 cursor-pointer' />
                         </TooltipTrigger>
-                        <TooltipContent side='bottom'>
+                        <TooltipContent side='right'>
                             <p className='text-xs text-white bg-slate-800 p-2 rounded-lg border'>Message</p>
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
             </div>
             <div className='flex flex-col gap-6 items-center'>
-                <p className='text-white'> mode</p>
+               
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                        <p> <ModeSwitch /></p>
+                        </TooltipTrigger>
+                        <TooltipContent side='right' >
+                            <p className='text-xs text-white bg-slate-800 p-2 rounded-lg border'>Switch Mode</p>
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>

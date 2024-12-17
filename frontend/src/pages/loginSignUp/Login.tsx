@@ -11,9 +11,13 @@ import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginSchema, SignupSchema } from './validation/LoginSignUp.Validation';
+import { Eye, EyeClosed } from 'lucide-react';
 
 const LoginSignup: React.FC = () => {
     const [type, setType] = useState<'login' | 'signup'>('login');
+    const [password, setPassword] = useState<boolean>(false)
+
+    const togglePassword = () => setPassword(!password)
 
     // Determine schema based on type
     const schema = type === 'login' ? LoginSchema : SignupSchema;
@@ -79,7 +83,7 @@ const LoginSignup: React.FC = () => {
                                         <FormControl>
                                             <input
                                                 type="text"
-                                                className="w-full p-3 border rounded-md outline-none bg-slate-800 focus:ring-2 focus:ring-slate-500"
+                                                className="w-full p-3 border text-white rounded-md outline-none bg-slate-800 focus:ring-2 focus:ring-slate-500"
                                                 placeholder="Enter your name"
                                                 {...field}
                                             />
@@ -102,7 +106,7 @@ const LoginSignup: React.FC = () => {
                                     <FormControl>
                                         <input
                                             type="email"
-                                            className="w-full p-3 border rounded-md outline-none bg-slate-800 focus:ring-2 focus:ring-slate-500"
+                                            className="w-full p-3 border text-white rounded-md outline-none bg-slate-800 focus:ring-2 focus:ring-slate-500"
                                             placeholder="Enter your email"
                                             {...field}
                                         />
@@ -118,17 +122,21 @@ const LoginSignup: React.FC = () => {
                             name="password"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className="font-medium text-white">
-                                        Password<span className="text-red-500">*</span>
-                                    </FormLabel>
-                                    <FormControl>
-                                        <input
-                                            type="password"
-                                            className="w-full p-3 border rounded-md bg-slate-800 outline-none focus:ring-2 focus:ring-slate-500"
-                                            placeholder="Enter your password"
-                                            {...field}
-                                        />
-                                    </FormControl>
+                                    <div className='relative'>
+                                        <FormLabel className="font-medium text-white">
+                                            Password<span className="text-red-500">*</span>
+                                        </FormLabel>
+                                        <FormControl >
+                                            <input
+                                                type={password === true ? "text" : "password"}
+                                                className="w-full p-3 border text-white rounded-md bg-slate-800 outline-none focus:ring-2 focus:ring-slate-500"
+                                                placeholder="Enter your password"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <div className='absolute bottom-3 right-5 text-slate-300 ' onClick={togglePassword}>{password === true ? <Eye /> : <EyeClosed />}</div>
+
+                                    </div>
                                     <FormMessage className="text-red-500" />
                                 </FormItem>
                             )}
@@ -148,10 +156,10 @@ const LoginSignup: React.FC = () => {
                         <motion.button
                             className="w-full bg-slate-500 text-lg font-semibold text-white p-3 rounded-md shadow hover:bg-slate-400 transition mt-4 flex items-center justify-center gap-2"
                             whileTap={{ scale: 0.95 }}
-                           
+
                         >
-                           <img src='/search.png' className='h-6 w-6'/>
-                           {type==='login'? "Login with Google": "signup with Google"}
+                            <img src='/search.png' className='h-6 w-6' />
+                            {type === 'login' ? "Login with Google" : "signup with Google"}
                         </motion.button>
 
                         {/* Toggle Login/Signup */}
