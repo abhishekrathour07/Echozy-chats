@@ -13,7 +13,7 @@ const Chats: React.FC = () => {
 
     return (
         <div className="bg-slate-900 h-screen flex items-center justify-center">
-            <div className={`bg-white shadow-xl flex ${fullscreen ? "h-full w-full" : "h-[75vh] w-[75vw]"}`} >
+            <div className={`bg-white shadow-xl flex ${fullscreen ? "h-full w-full" : "h-[95vh] w-[85vw]"}`} >
                 <Navbar/>
                 {/* Sidebar */}
                 <Sidebar fullscreen={fullscreen} />

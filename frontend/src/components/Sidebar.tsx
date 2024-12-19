@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Input } from './ui/input'
 import { Search } from 'lucide-react'
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
@@ -6,45 +6,66 @@ import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
 interface SidebarProps {
     fullscreen: boolean;
 }
-const Sidebar:React.FC<SidebarProps> = ({fullscreen}) => {
+const Sidebar: React.FC<SidebarProps> = ({ fullscreen }) => {
     const data = [
         {
+            id: 1,
             name: "John Doe",
             msg: "Hey, just wanted to check in on the project status.",
-            image: "/assets/profile_enrique.png"
+            image: "/assets/profile_enrique.png",
         },
         {
+            id: 2,
             name: "Jane Smith",
             msg: "Looking forward to our meeting tomorrow!",
-            image: null
+            image: null,
         },
         {
+            id: 3,
             name: "Alex Johnson",
             msg: "Can you share the latest updates with me?",
-            image: null
+            image: null,
         },
         {
+            id: 4,
             name: "Emily Davis",
             msg: "Happy Friday! Have a great weekend ahead.",
-            image: null
+            image: null,
         },
         {
+            id: 5,
             name: "Michael Brown",
             msg: "Thanks for the support! Really appreciate it.",
-            image: null
+            image: null,
         },
         {
+            id: 6,
+            name: "Michael Brown",
+            msg: "Thanks for the support! Really appreciate it.",
+            image: null,
+        },
+        {
+            id: 7,
+            name: "Michael Brown",
+            msg: "Thanks for the support! Really appreciate it.",
+            image: null,
+        },
+        {
+            id: 8,
             name: "Abhishek Singh",
             msg: "Thanks for the support! Really appreciate it.",
-            image: null
-        }
+            image: null,
+        },
     ];
+
+    const [selected, setSelected] = useState(0)
 
     return (
         <div className={`h-full bg-slate-800 text-white flex flex-col border-r border-gray-600 ${fullscreen ? "w-[27vw]" : "w-[23vw]"}`}>
             {/* Header */}
             <div className={`flex justify-center items-center w-full px-4 gap-2 border-b border-gray-600 ${fullscreen ? "h-20" : "h-20"}`}>
                 <p className='text-lg font-semibold'>Active Conversation <span className='bg-red-600 text-white h-6 w-6 px-2  rounded-full'>5</span></p>
+
             </div>
 
             {/* Search Bar */}
@@ -55,10 +76,12 @@ const Sidebar:React.FC<SidebarProps> = ({fullscreen}) => {
 
             {/* Chat List */}
             <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
-                {data.map((item, index) => (
+                {data.map((item: any) => (
                     <div
-                        className="bg-slate-900 flex h-20 gap-4 px-4 py-3 items-center mt-[1.2px] hover:bg-slate-700 cursor-pointer"
-                        key={index}
+                        onClick={() => setSelected(item.id)} // Update the selected state correctly
+                        className={`flex h-20 gap-4 px-4 py-3 items-center mt-[1.2px] cursor-pointer hover:bg-slate-950 
+                     ${selected === item.id ? "bg-slate-950" : "bg-slate-900"}`} // Proper conditional styling
+                        key={item.id}
                     >
                         <Avatar>
                             <AvatarImage

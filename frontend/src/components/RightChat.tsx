@@ -10,6 +10,32 @@ type Props = {
 };
 
 const RightChat: React.FC<Props> = ({ toggleSize, fullscreen }) => {
+    // Define actions for the icons
+    const actions = [
+        {
+            id: 1,
+            tooltip: fullscreen ? "Minimize" : "Fullscreen",
+            icon: fullscreen ? (
+                <Minimize2
+                    onClick={toggleSize}
+                    className="text-white hover:text-slate-300 cursor-pointer"
+                />
+            ) : (
+                <Expand
+                    onClick={toggleSize}
+                    className="text-white hover:text-slate-300 cursor-pointer"
+                />
+            ),
+        },
+        {
+            id: 2,
+            tooltip: "Menu",
+            icon: (
+                <EllipsisVertical className="text-white hover:text-slate-300 cursor-pointer" />
+            ),
+        },
+    ];
+
     return (
         <div className="flex-1 flex flex-col bg-slate-900">
             {/* Header */}
@@ -23,55 +49,33 @@ const RightChat: React.FC<Props> = ({ toggleSize, fullscreen }) => {
                 </Avatar>
                 <div className="flex text-white w-full items-center justify-between px-2">
                     <div className="flex items-center gap-2">
-                        <div className='flex flex-col'>
-                        <h2 className="text-lg font-semibold truncate w-auto max-w-40">
-                            {"Abhishek Singh"}
-                        </h2>
-                        <p className='text-xs text-slate-500'>Contact to the chat</p>
+                        <div className="flex flex-col">
+                            <h2 className="text-lg font-semibold truncate w-auto max-w-40">
+                                {"Abhishek Singh"}
+                            </h2>
+                            <p className="text-xs text-slate-500">Contact to the chat</p>
                         </div>
                         <div className="h-2 w-2 rounded-full bg-green-500"></div>
                     </div>
                     <div className="flex gap-4">
-                        <TooltipProvider>
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    {fullscreen ? (
-                                        <Minimize2
-                                            onClick={toggleSize}
-                                            className="text-white hover:text-slate-300 cursor-pointer"
-                                        />
-                                    ) : (
-                                        <Expand
-                                            onClick={toggleSize}
-                                            className="text-white hover:text-slate-300 cursor-pointer"
-                                        />
-                                    )}
-                                </TooltipTrigger>
-                                <TooltipContent side="bottom">
-                                    <p className="text-xs text-white bg-slate-800 p-2 rounded-lg border">
-                                        {fullscreen ? "Minimize" : "Fullscreen"}
-                                    </p>
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
-                        <TooltipProvider>
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <EllipsisVertical className="text-white hover:text-slate-300 cursor-pointer" />
-                                </TooltipTrigger>
-                                <TooltipContent side="bottom">
-                                    <p className="text-xs text-white bg-slate-800 p-2 rounded-lg border">
-                                        {"Menu"}
-                                    </p>
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
+                        {actions.map((action) => (
+                            <TooltipProvider key={action.id}>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>{action.icon}</TooltipTrigger>
+                                    <TooltipContent side="bottom">
+                                        <p className="text-xs text-white bg-slate-800 p-2 rounded-lg border">
+                                            {action.tooltip}
+                                        </p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                        ))}
                     </div>
                 </div>
             </div>
 
             {/* Chat Messages */}
-           <Chatbox fullscreen={fullscreen}/>
+            <Chatbox fullscreen={fullscreen} />
         </div>
     );
 };
