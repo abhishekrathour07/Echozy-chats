@@ -2,11 +2,8 @@ import React, { useRef, useState, useEffect } from 'react';
 import EmojiPicker, { Theme } from 'emoji-picker-react';
 import { Smile } from 'lucide-react';
 
-type Props = {
-  fullscreen: boolean;
-};
 
-const EmojiPickerPopup: React.FC<Props> = ({ fullscreen }) => {
+const EmojiPickerPopup: React.FC= () => {
   const [isPickerOpen, setIsPickerOpen] = useState(false);
 
   // References for menu and picker
@@ -14,8 +11,6 @@ const EmojiPickerPopup: React.FC<Props> = ({ fullscreen }) => {
   const emojiRef = useRef<HTMLDivElement | null>(null);
 
   const togglePicker = () => setIsPickerOpen(!isPickerOpen);
-
-  const height = fullscreen ? "350px" : "300px";
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -67,7 +62,7 @@ const EmojiPickerPopup: React.FC<Props> = ({ fullscreen }) => {
               backgroundColor: '#1e293b',
               border: 'none',
               padding: '4px',
-              height: height,
+              height: '350px',
             }}
           />
         </div>

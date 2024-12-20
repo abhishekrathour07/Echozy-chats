@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Sidebar from '../../components/Sidebar';
 import RightChat from '../../components/RightChat';
 import Navbar from '../../components/Navbar';
@@ -6,20 +6,16 @@ import Navbar from '../../components/Navbar';
 
 const Chats: React.FC = () => {
 
-    const [fullscreen, setFullScreen] = useState(false);
-    const toggleSize = () => {
-        setFullScreen((prev) => !prev);
-    };
 
     return (
         <div className="bg-slate-900 h-screen flex items-center justify-center">
-            <div className={`bg-white shadow-xl flex ${fullscreen ? "h-full w-full" : "h-[95vh] w-[85vw]"}`} >
-                <Navbar/>
+            <div className={`bg-white shadow-xl flex  h-full w-full`} >
+                <Navbar />
                 {/* Sidebar */}
-                <Sidebar fullscreen={fullscreen} />
-                  
+                <Sidebar />
+
                 {/* chat section  */}
-                <RightChat toggleSize={toggleSize} fullscreen={fullscreen}/>
+                <RightChat />
 
             </div>
         </div>

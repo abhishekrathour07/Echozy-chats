@@ -3,16 +3,13 @@ import { Input } from './ui/input'
 import { Search } from 'lucide-react'
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
 
-interface SidebarProps {
-    fullscreen: boolean;
-}
-const Sidebar: React.FC<SidebarProps> = ({ fullscreen }) => {
+const Sidebar: React.FC = () => {
     const data = [
         {
             id: 1,
             name: "John Doe",
             msg: "Hey, just wanted to check in on the project status.",
-            image: "/assets/profile_enrique.png",
+            image: null,
         },
         {
             id: 2,
@@ -61,9 +58,9 @@ const Sidebar: React.FC<SidebarProps> = ({ fullscreen }) => {
     const [selected, setSelected] = useState(0)
 
     return (
-        <div className={`h-full bg-slate-800 text-white flex flex-col border-r border-gray-600 ${fullscreen ? "w-[27vw]" : "w-[23vw]"}`}>
+        <div className={`h-full bg-slate-800 text-white flex flex-col border-r border-gray-600 w-[27vw]`}>
             {/* Header */}
-            <div className={`flex justify-center items-center w-full px-4 gap-2 border-b border-gray-600 ${fullscreen ? "h-20" : "h-20"}`}>
+            <div className={`flex justify-center items-center w-full px-4 gap-2 border-b border-gray-600 h-20`}>
                 <p className='text-lg font-semibold'>Active Conversation <span className='bg-red-600 text-white h-6 w-6 px-2  rounded-full'>5</span></p>
 
             </div>
