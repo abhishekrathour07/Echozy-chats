@@ -41,7 +41,7 @@ const EmojiPickerPopup: React.FC = () => {
       window.removeEventListener('click', handleClickOutside);
     };
   }, [isPickerOpen]);
-
+  
   return (
     <div className="relative">
       {/* Menu Button */}

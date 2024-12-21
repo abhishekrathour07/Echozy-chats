@@ -76,8 +76,8 @@ const Sidebar: React.FC = () => {
                 {data.map((item: any) => (
                     <div
                         onClick={() => setSelected(item.id)} // Update the selected state correctly
-                        className={`flex h-20 gap-4 px-4 py-3 items-center mt-[1.2px] dark:border-t cursor-pointer hover:bg-slate-950 dark:hover:bg-gray-200 dark:text-slate-800 dark:bg-white
-                     ${selected === item.id ? "bg-slate-950 dark:bg-gray-300" : "bg-slate-900 "}`} // Proper conditional styling
+                        className={`flex h-20 gap-4 px-4 py-3 items-center mt-[1.2px] dark:border-t cursor-pointer hover:bg-slate-950 dark:hover:bg-gray-200 dark:text-slate-800 
+                     ${selected === item.id ? "bg-slate-950 dark:bg-slate-200" : "bg-slate-900 dark:bg-white "}`} // Proper conditional styling
                         key={item.id}
                     >
                         <Avatar>
@@ -96,6 +96,7 @@ const Sidebar: React.FC = () => {
                             <p className="text-gray-400 text-sm truncate w-40 dark:text-slate-800">
                                 {item.msg}
                             </p>
+
                         </div>
                     </div>
                 ))}

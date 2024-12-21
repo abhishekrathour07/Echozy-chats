@@ -6,6 +6,7 @@ import Chats from './pages/chats/Chats'
 import Varification from './pages/registerVarify/Varification'
 
 const App: React.FC = () => {
+  
   return (
     <div >
       <Routes>

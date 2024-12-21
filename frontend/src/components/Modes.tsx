@@ -3,8 +3,6 @@ import { useTheme } from "../context/theme";
 
 export default function ModeSwitch() {
     const { theme, toggleTheme } = useTheme();
-    console.log(theme);
-
 
     return (
         <div

@@ -1,4 +1,4 @@
-import { Ban, Trash2, User } from "lucide-react"
+import { Ban, Trash2 } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,14 +20,11 @@ export function MenupopUp({ title }: any) {
         <DropdownMenuLabel className="border-b py-2">My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup >
-          <DropdownMenuItem >
-            <p className="flex gap-2 items-center"><User size={18} /> Profile</p>
+          <DropdownMenuItem className="flex gap-2 items-center">
+            <Trash2 size={18} /> Clear Chat
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <p className="flex gap-2 items-center "><Trash2 size={18} /> Clear Chat</p>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <p className="flex gap-2 items-center"><Ban size={18} /> Block User</p>
+          <DropdownMenuItem className="flex gap-2 items-center">
+            <Ban size={18} /> Block User
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />

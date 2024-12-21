@@ -1,10 +1,14 @@
 import React from 'react'
 import ChatInputForm from './ChatInputForm'
 
-const Chatbox: React.FC = () => {
+interface ChatboxProps {
+    backgroundImage: string;  // Define the 'bg' prop type here
+}
+const Chatbox: React.FC<ChatboxProps> = ({ backgroundImage }) => {
     return (
         <div className='flex-1 flex flex-col dark:text-slate-800 dark:bg-white'>
-            <div className="flex-1 overflow-y-auto bg-[url('/bg-main.png')] px-6 py-4 bg-slate-950 dark:bg-slate-200">
+            <div className={`flex-1 overflow-y-auto px-6 py-4 dark:bg-slate-300 bg-slate-900`}
+                style={{ backgroundImage: `url(${backgroundImage})` }}>
                 <div className="flex flex-col gap-3">
 
                     <div className="self-start py-3 px-1 gap-1 max-w-xs">
