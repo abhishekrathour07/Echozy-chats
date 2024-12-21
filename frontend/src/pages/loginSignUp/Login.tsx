@@ -34,7 +34,7 @@ const LoginSignup: React.FC = () => {
     const onSubmit = (data: any) => {
         console.log(data);
     };
-
+   
     return (
         <div className="bg-[url('/background.png')] bg-cover bg-center h-screen flex flex-col items-center md:flex-row justify-around p-4">
             {/* Logo Section */}
@@ -52,7 +52,7 @@ const LoginSignup: React.FC = () => {
 
             {/* Form Section */}
             <motion.div
-                className="w-full max-w-md p-8 bg-slate-900 rounded-xl shadow-md m-4 md:m-0"
+                className="w-full max-w-md p-8 bg-slate-900 dark:bg-white dark:text-slate-800 rounded-xl shadow-md m-4 md:m-0"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: 'easeOut' }}
@@ -60,7 +60,7 @@ const LoginSignup: React.FC = () => {
             >
                 {/* Heading */}
                 <motion.h2
-                    className="text-3xl font-bold text-center text-white mb-6"
+                    className="text-3xl font-bold text-center text-white dark:text-slate-800  mb-6 "
                     initial={{ opacity: 0, x: -70 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1.5 }}
@@ -69,7 +69,7 @@ const LoginSignup: React.FC = () => {
                 </motion.h2>
 
                 <Form {...form}>
-                    <div className="space-y-4">
+                    <div className="space-y-4 ">
                         {/* Name Field (only for signup) */}
                         {type === 'signup' && (
                             <FormField
@@ -77,13 +77,13 @@ const LoginSignup: React.FC = () => {
                                 name="name"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="font-medium text-white">
+                                        <FormLabel className="font-medium text-white dark:text-slate-800 ">
                                             Name<span className="text-red-500">*</span>
                                         </FormLabel>
                                         <FormControl>
                                             <input
                                                 type="text"
-                                                className="w-full p-3 border text-white rounded-md outline-none bg-slate-800 focus:ring-2 focus:ring-slate-500"
+                                                className="w-full p-3 border text-white dark:text-slate-800 dark:bg-slate-100 rounded-md outline-none bg-slate-800 focus:ring-2 focus:ring-slate-500"
                                                 placeholder="Enter your name"
                                                 {...field}
                                             />
@@ -100,13 +100,13 @@ const LoginSignup: React.FC = () => {
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className="font-medium text-white">
+                                    <FormLabel className="font-medium text-white dark:text-slate-800">
                                         Email Address<span className="text-red-500">*</span>
                                     </FormLabel>
                                     <FormControl>
                                         <input
                                             type="email"
-                                            className="w-full p-3 border text-white rounded-md outline-none bg-slate-800 focus:ring-2 focus:ring-slate-500"
+                                            className="w-full p-3 border text-white rounded-md outline-none bg-slate-800 dark:bg-slate-100 dark:text-slate-800 focus:ring-2 focus:ring-slate-500"
                                             placeholder="Enter your email"
                                             {...field}
                                         />
@@ -123,18 +123,18 @@ const LoginSignup: React.FC = () => {
                             render={({ field }) => (
                                 <FormItem>
                                     <div className='relative'>
-                                        <FormLabel className="font-medium text-white">
+                                        <FormLabel className="font-medium text-white dark:text-slate-800">
                                             Password<span className="text-red-500">*</span>
                                         </FormLabel>
                                         <FormControl >
                                             <input
                                                 type={password === true ? "text" : "password"}
-                                                className="w-full p-3 border text-white rounded-md bg-slate-800 outline-none focus:ring-2 focus:ring-slate-500"
+                                                className="w-full p-3 border text-white rounded-md bg-slate-800 dark:bg-slate-100 dark:text-slate-800 outline-none focus:ring-2 focus:ring-slate-500"
                                                 placeholder="Enter your password"
                                                 {...field}
                                             />
                                         </FormControl>
-                                        <div className='absolute bottom-3 right-5 text-slate-300 ' onClick={togglePassword}>{password === true ? <Eye /> : <EyeClosed />}</div>
+                                        <div className='absolute bottom-3 right-5 text-white dark:text-black' onClick={togglePassword}>{password === true ? <Eye /> : <EyeClosed />}</div>
 
                                     </div>
                                     <FormMessage className="text-red-500" />
@@ -145,7 +145,7 @@ const LoginSignup: React.FC = () => {
                         {/* Submit Button */}
                         <motion.button
                             type="submit"
-                            className="w-full bg-white text-lg font-semibold text-black p-3 rounded-md hover:bg-slate-300 transition mt-2"
+                            className="w-full bg-white text-lg font-semibold text-black dark:text-white dark:bg-slate-900 p-3 rounded-md hover:bg-slate-300 transition mt-2"
                             whileTap={{ scale: 0.95 }}
                             onClick={form.handleSubmit(onSubmit)}
                         >
@@ -170,20 +170,20 @@ const LoginSignup: React.FC = () => {
                             transition={{ duration: 2 }}
                         >
                             {type === 'login' ? (
-                                <p className="flex gap-2 text-slate-400 justify-center">
+                                <p className="flex gap-2 text-slate-400 dark:text-black justify-center">
                                     Don't have an account?
                                     <span
-                                        className="text-white font-semibold cursor-pointer"
+                                        className="text-white font-semibold cursor-pointer dark:text-blue-900"
                                         onClick={() => setType('signup')}
                                     >
                                         Signup
                                     </span>
                                 </p>
                             ) : (
-                                <p className="text-slate-400 flex gap-2 justify-center">
+                                <p className="text-slate-400 dark:text-black flex gap-2 justify-center">
                                     Already have an account?
                                     <span
-                                        className="text-white font-semibold cursor-pointer"
+                                        className="text-white font-semibold cursor-pointer dark:text-blue-900"
                                         onClick={() => setType('login')}
                                     >
                                         Login

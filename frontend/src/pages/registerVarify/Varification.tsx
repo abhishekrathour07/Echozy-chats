@@ -23,9 +23,9 @@ const Verification: React.FC = () => {
     };
 
     return (
-        <div className="bg-slate-900 h-screen flex justify-center items-center">
+        <div className="bg-slate-900 dark:bg-white  dark:text-slate-800 h-screen flex justify-center items-center">
             <motion.div
-                className="text-white bg-slate-800 h-auto w-80 rounded-md px-6 py-8 drop-shadow-lg space-y-6"
+                className="text-white bg-slate-800 dark:bg-white  dark:text-slate-800 h-auto w-80 rounded-md px-6 py-8 drop-shadow-lg space-y-6"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -52,7 +52,7 @@ const Verification: React.FC = () => {
                             key={index}
                             type="text"
                             maxLength={1}
-                            className="w-12 h-12 text-center text-xl font-bold bg-slate-700 border rounded-md focus:outline-none focus:ring-2 focus:ring-slate-500"
+                            className="w-12 h-12 text-center text-xl font-bold bg-slate-700 dark:text-black dark:bg-slate-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-slate-500 dark:focus:ring-white"
                             variants={inputVariants}
                         />
                     ))}
@@ -63,16 +63,16 @@ const Verification: React.FC = () => {
                         className="text-slate-400 text-center"
                         variants={fadeInLeft}
                     >
-                    Didn't receive the code?{' '}
-                        <span className="text-white hover:underline hover:text-green-500 cursor-pointer">
+                        Didn't receive the code?{' '}
+                        <span className="text-white dark:text-black hover:underline hover:text-green-500 cursor-pointer">
                             Resend
                         </span>
                     </motion.p>
 
                     {/* Submit Button */}
                     <motion.button
-                        className="w-full bg-white text-black font-semibold text-lg py-2 rounded-md hover:bg-gray-200 transition"
-                       
+                        className="w-full bg-white text-black dark:text-white  dark:bg-slate-900 font-semibold text-lg py-2 rounded-md hover:bg-gray-200 transition"
+
                         variants={fadeInRight}
                     >
                         Verify
@@ -82,7 +82,7 @@ const Verification: React.FC = () => {
                         className="text-red-500 text-center"
                         variants={fadeInLeft}
                     >
-                        Don’t share this code with anyone.
+                        Don't share this code with anyone.
                     </motion.p>
                 </motion.div>
             </motion.div>

@@ -15,14 +15,14 @@ const RightChat: React.FC = () => {
             id: 1,
             tooltip: "Video Call",
             icon: (
-                <Video className="text-white hover:text-slate-300 cursor-pointer" />
+                <Video className="text-white hover:text-slate-300 cursor-pointer dark:text-slate-800" />
             ),
         },
         {
             id: 2,
             tooltip: "Call",
             icon: (
-                <Phone className="text-white hover:text-slate-300 cursor-pointer" />
+                <Phone className="text-white hover:text-slate-300 cursor-pointer dark:text-slate-800 " />
             ),
         },
 
@@ -33,9 +33,9 @@ const RightChat: React.FC = () => {
 
     return (
         <>
-            <div className="flex-1 flex flex-col bg-slate-900 " >
+            <div className="flex-1 flex flex-col bg-slate-900 dark:text-slate-800 dark:bg-white " >
                 {/* Header */}
-                <div className="bg-slate-800 flex h-20 gap-4 px-4 py-3 items-center border-b border-gray-700 shadow-lg w-full">
+                <div className="bg-slate-800 dark:bg-white flex h-20 gap-4 px-4 py-3 items-center border-b border-gray-700 shadow-lg w-full">
 
                     <div className='flex w-96 gap-4 cursor-pointer' onClick={toggleUserInfo}>
                         <Avatar>
@@ -47,7 +47,7 @@ const RightChat: React.FC = () => {
                         </Avatar>
                         <div className="flex items-center gap-2">
                             <div className="flex flex-col">
-                                <h2 className="text-lg font-semibold truncate w-auto max-w-40 text-white">
+                                <h2 className="text-lg font-semibold truncate w-auto max-w-40 text-white dark:text-slate-800">
                                     {"Abhishek Singh"}
                                 </h2>
                                 <p className="text-xs text-slate-500">Contact to the chat</p>
@@ -56,14 +56,14 @@ const RightChat: React.FC = () => {
                         </div>
 
                     </div>
-                    <div className="flex text-white w-full items-center justify-end px-2">
+                    <div className="flex text-white dark:text-slate-800 w-full items-center justify-end px-2">
                         <div className="flex gap-2">
                             {actions.map((action) => (
                                 <TooltipProvider key={action.id}>
                                     <Tooltip delayDuration={40}>
-                                        <TooltipTrigger asChild><p className='border border-slate-900 p-2 rounded-md'>{action.icon}</p></TooltipTrigger>
+                                        <TooltipTrigger asChild><p className='border border-slate-900 p-2 rounded-md dark:text-slate-800 dark:border-slate-300'>{action.icon}</p></TooltipTrigger>
                                         <TooltipContent side="bottom">
-                                            <p className="text-xs text-white bg-slate-800 p-2 rounded-lg border">
+                                            <p className="text-xs text-white dark:text-slate-800 dark:bg-white bg-slate-800 p-2 rounded-lg border ">
                                                 {action.tooltip}
                                             </p>
                                         </TooltipContent>
@@ -72,7 +72,7 @@ const RightChat: React.FC = () => {
                             ))}
 
                         </div>
-                        <p className='border border-slate-900 p-2 rounded-md ml-2 cursor-pointer'> <MenupopUp title={<EllipsisVertical />} /></p>
+                        <p className='border border-slate-900 p-2 rounded-md ml-2 cursor-pointer dark:border-slate-300'> <MenupopUp title={<EllipsisVertical />} /></p>
                     </div>
                 </div>
                 <Chatbox />

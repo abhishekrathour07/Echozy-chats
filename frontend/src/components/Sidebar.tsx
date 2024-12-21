@@ -58,7 +58,7 @@ const Sidebar: React.FC = () => {
     const [selected, setSelected] = useState(0)
 
     return (
-        <div className={`h-full bg-slate-800 text-white flex flex-col border-r border-gray-600 w-[27vw]`}>
+        <div className={`h-full bg-slate-800 text-white flex flex-col border-r border-gray-600 w-[27vw] dark:text-slate-800 dark:bg-white`}>
             {/* Header */}
             <div className={`flex justify-center items-center w-full px-4 gap-2 border-b border-gray-600 h-20`}>
                 <p className='text-lg font-semibold'>Active Conversation <span className='bg-red-600 text-white h-6 w-6 px-2  rounded-full'>5</span></p>
@@ -72,12 +72,12 @@ const Sidebar: React.FC = () => {
             </div>
 
             {/* Chat List */}
-            <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
+            <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900  dark:scrollbar-thumb-slate-200 dark:scrollbar-track-white">
                 {data.map((item: any) => (
                     <div
                         onClick={() => setSelected(item.id)} // Update the selected state correctly
-                        className={`flex h-20 gap-4 px-4 py-3 items-center mt-[1.2px] cursor-pointer hover:bg-slate-950 
-                     ${selected === item.id ? "bg-slate-950" : "bg-slate-900"}`} // Proper conditional styling
+                        className={`flex h-20 gap-4 px-4 py-3 items-center mt-[1.2px] dark:border-t cursor-pointer hover:bg-slate-950 dark:hover:bg-gray-200 dark:text-slate-800 dark:bg-white
+                     ${selected === item.id ? "bg-slate-950 dark:bg-gray-300" : "bg-slate-900 "}`} // Proper conditional styling
                         key={item.id}
                     >
                         <Avatar>
@@ -90,10 +90,10 @@ const Sidebar: React.FC = () => {
                             />
                         </Avatar>
                         <div className="flex flex-col">
-                            <h2 className="text-lg font-semibold text-white truncate w-40">
+                            <h2 className="text-lg font-semibold text-white truncate w-40 dark:text-slate-800">
                                 {item.name}
                             </h2>
-                            <p className="text-gray-400 text-sm truncate w-40">
+                            <p className="text-gray-400 text-sm truncate w-40 dark:text-slate-800">
                                 {item.msg}
                             </p>
                         </div>

@@ -16,7 +16,7 @@ export function MenupopUp({ title }: any) {
       <DropdownMenuTrigger asChild>
         <p>{title}</p>
       </DropdownMenuTrigger>
-      <DropdownMenuContent side="bottom" className="w-56 bg-slate-800 text-white">
+      <DropdownMenuContent side="bottom" className="w-56 bg-slate-800 dark:border-black dark:bg-white text-white dark:text-slate-800">
         <DropdownMenuLabel className="border-b py-2">My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup >

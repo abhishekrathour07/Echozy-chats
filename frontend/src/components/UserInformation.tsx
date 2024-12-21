@@ -9,13 +9,13 @@ type props = {
 const UserInformation: React.FC<props> = ({ toggleInfo }) => {
     return (
         <div
-            className={`fixed top-0 right-0 z-50 bg-slate-800 shadow-lg h-full w-full sm:w-1/2 md:w1/3 lg:w-1/4 p-4 transition-transform duration-400`}
+            className={`fixed top-0 right-0 z-50 bg-slate-800 shadow-lg h-full w-full sm:w-1/2 md:w1/3 lg:w-1/4 p-4 transition-transform duration-400 dark:text-slate-800 dark:bg-white`}
         >
-            <div className='flex px-2 h-14 border-b border-slate-500 justify-between items-center text-xl font-semibold text-white'>
+            <div className='flex px-2 h-14 border-b border-slate-500 justify-between items-center text-xl font-semibold text-white dark:text-slate-800'>
                 <p >Profile</p>
                 <X onClick={toggleInfo} className='cursor-pointer hover:text-slate-600' />
             </div>
-            <div className='w-full flex flex-col justify-betweeen gap-2 mt-4 items-center text-white px-2 py-4'>
+            <div className='w-full flex flex-col justify-betweeen gap-2 mt-4 items-center text-white dark:text-slate-800 px-2 py-4'>
                 <Avatar className='w-24 h-24 rounded-md '>
                     <AvatarImage
                         className="w-24 h-24 rounded-md object-cover object-center"
@@ -23,11 +23,11 @@ const UserInformation: React.FC<props> = ({ toggleInfo }) => {
                         alt="Abhishek Singh"
                     />
                 </Avatar>
-                <h2 className='text-2xl'>Abhishek Singh</h2>
+                <h2 className='text-2xl dark:text-slate-800'>Abhishek Singh</h2>
                 <p className='text-md text-slate-400'>software Developer</p>
             </div>
-            <div className='flex gap-2 text-white justify-between px-4'>
-                <div className=' border border-slate-500 flex items-center rounded-md px-6 py-2 gap-2'>
+            <div className='flex gap-2 text-white dark:text-slate-800 justify-between px-4'>
+                <div className=' border border-slate-500 flex items-center rounded-md px-6 py-2 gap-2 '>
                     <MessageSquare size={18} />
                     <p>Message</p>
                 </div>
