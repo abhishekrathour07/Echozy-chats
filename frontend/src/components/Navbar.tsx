@@ -14,6 +14,7 @@ import {
   TooltipTrigger,
 } from './ui/tooltip';
 import ModeSwitch from './Modes';
+import ToggleButton from './toggle';
 
 const Navbar: React.FC = () => {
   const iconsArray = [
@@ -79,6 +80,7 @@ const Navbar: React.FC = () => {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
+        <ToggleButton/>
       </div>
     </div>
   );
